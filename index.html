@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1,body {
+            margin: 0;
+        }
+        .row,.column {
+            width: 100%;
+            background: pink;
+        }
+        .content {
+            display: flex;
+        }
+        .content .item {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            line-height: 200px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            background: red;
+        }
+        .content .item:nth-child(odd) {
+            background: green;
+        }
+        .column {
+            margin-top: 10px;
+            height: 400px;
+        }
+        .column .content {
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>只支持移动端</h1>
+    <div class="row">
+        <div class="content">
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+            <div class="item">Row</div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="content">
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+            <div class="item">Column</div>
+        </div>
+    </div>
+    <script src="./m-touchMove.js"></script>
+    <script>
+    touchMove({
+        parent: document.querySelector('.row'),
+        child: document.querySelector('.row .content'),
+        X: true,
+        addScroll: 10
+    });
+
+    touchMove({
+        parent: document.querySelector('.column'),
+        child: document.querySelector('.column .content'),
+        addScroll: 100
+    });
+    </script>
+</body>
+</html>
